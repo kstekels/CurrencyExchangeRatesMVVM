@@ -59,10 +59,19 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="fW6-aO-5sR">
+                                <rect key="frame" x="145" y="372" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="jbR-jQ-enu"/>
+                                    <constraint firstAttribute="width" constant="100" id="l98-C3-prf"/>
+                                </constraints>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="WhO-1g-GH0"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="fW6-aO-5sR" firstAttribute="centerX" secondItem="2jn-Ph-8AB" secondAttribute="centerX" id="44G-9c-Old"/>
+                            <constraint firstItem="fW6-aO-5sR" firstAttribute="centerY" secondItem="2jn-Ph-8AB" secondAttribute="centerY" id="660-Ed-8Vj"/>
                             <constraint firstItem="cmf-0w-sel" firstAttribute="top" secondItem="WhO-1g-GH0" secondAttribute="top" id="ENF-tH-X50"/>
                             <constraint firstItem="WhO-1g-GH0" firstAttribute="trailing" secondItem="cmf-0w-sel" secondAttribute="trailing" id="FZo-40-UPm"/>
                             <constraint firstItem="cmf-0w-sel" firstAttribute="leading" secondItem="WhO-1g-GH0" secondAttribute="leading" id="Wlp-xU-6nO"/>
@@ -77,6 +86,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="spinner" destination="fW6-aO-5sR" id="NFw-AM-hyR"/>
                         <outlet property="tableView" destination="cmf-0w-sel" id="pQu-0s-rLX"/>
                     </connections>
                 </viewController>
@@ -93,7 +103,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select base currency" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFz-Ay-3Om">
-                                <rect key="frame" x="77.666666666666686" y="111" width="235" height="28.666666666666657"/>
+                                <rect key="frame" x="77.666666666666686" y="151" width="235" height="28.666666666666657"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -114,7 +124,7 @@
                         <viewLayoutGuide key="safeArea" id="DkX-aD-i9k"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="BFz-Ay-3Om" firstAttribute="top" secondItem="DkX-aD-i9k" secondAttribute="top" constant="20" id="9l2-dQ-yNF"/>
+                            <constraint firstItem="BFz-Ay-3Om" firstAttribute="top" secondItem="DkX-aD-i9k" secondAttribute="top" constant="60" id="9l2-dQ-yNF"/>
                             <constraint firstItem="PQ6-wA-qOp" firstAttribute="centerX" secondItem="sDY-LB-DU9" secondAttribute="centerX" id="ETg-rx-EZi"/>
                             <constraint firstItem="PQ6-wA-qOp" firstAttribute="top" secondItem="ZlD-vE-jgq" secondAttribute="bottom" constant="30" id="I48-Up-8vm"/>
                             <constraint firstItem="BFz-Ay-3Om" firstAttribute="centerX" secondItem="sDY-LB-DU9" secondAttribute="centerX" id="X2M-MZ-FsC"/>

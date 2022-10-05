@@ -14,10 +14,14 @@ class CurrencyExchangeRateViewController: UIViewController {
     private var getAllCurrencyVM = GetAllCurrenciesViewModel()
     private var currencyVM: CurrencyViewModel?
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
     private let defaults = UserDefaults.standard
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        spinner.startAnimating()
+        
         self.title = "\(getBaseCurrencySymbol() ?? "") \(Constants.Titles.currencyTableViewTitle)"
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -25,6 +29,7 @@ class CurrencyExchangeRateViewController: UIViewController {
             self.currencyVM = viewModel
             DispatchQueue.main.async {
                 self.tableView.reloadData()
+                self.spinner.stopAnimating()
             }
         }
         
@@ -54,8 +59,8 @@ extension CurrencyExchangeRateViewController: UITableViewDelegate, UITableViewDa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: Constants.Cells.currencyCellIdentifier, for: indexPath) as! CurrencyExchangeRatesTableViewCell
         let currencyName = currencyVM?.keys[indexPath.row]
-        cell.currencyLabel.text = currencyName
-        cell.currencyValue.text = (self.currencyVM?.currencies.rates[currencyName!])!.formatCurrency()
+        let currencyValue = (self.currencyVM?.currencies.rates[currencyName!])!.formatCurrency()
+        cell.configureCell(currencyName!, currencyValue)
         
         return cell
     }

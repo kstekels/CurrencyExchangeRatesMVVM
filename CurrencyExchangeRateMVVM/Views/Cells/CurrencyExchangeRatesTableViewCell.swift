@@ -11,4 +11,9 @@ class CurrencyExchangeRatesTableViewCell: UITableViewCell {
 
     @IBOutlet weak var currencyLabel: UILabel!
     @IBOutlet weak var currencyValue: UILabel!
+    
+    func configureCell(_ currencyLabel: String, _ currencyValue: String) {
+        self.currencyLabel.text = currencyLabel
+        self.currencyValue.text = currencyValue
+    }
 }
