@@ -10,7 +10,7 @@ import Foundation
 
 class GetAllCurrenciesViewModel {
     func getCurrencyRates(for currency: String, completion: @escaping (CurrencyViewModel) -> Void) {
-        let currenciesUrl = Constants.Urls.urlForLatestExchangeRates(for: Constants.Currencies.EUR.rawValue)
+        let currenciesUrl = Constants.Urls.urlForLatestExchangeRates(for: currency)
         
         let currenciesResponse = Resource<CurrenciesResponse>(url: currenciesUrl) { data in
             let currenciesResponse = try? JSONDecoder().decode(CurrenciesResponse.self, from: data)
